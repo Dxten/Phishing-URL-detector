@@ -1,0 +1,5 @@
+# Whitelisted legitimate domains
+# Format: one domain per line
+google.com
+github.com
+stackoverflow.com

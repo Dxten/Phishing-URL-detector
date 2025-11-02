@@ -1,0 +1,99 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 350px;
+            padding: 15px;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #2563eb;
+        }
+        .url-display {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .result-badge {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .result-badge.safe {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .result-badge.suspicious {
+            background: #fed7aa;
+            color: #92400e;
+        }
+        .result-badge.dangerous {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .score {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .threats {
+            font-size: 12px;
+            color: #64748b;
+        }
+        .threat-item {
+            background: #f8fafc;
+            padding: 8px;
+            border-radius: 6px;
+            margin: 5px 0;
+            font-size: 11px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="font-size: 32px;">🛡️</div>
+        <h1>Phishing Detector</h1>
+    </div>
+    
+    <div id="content">
+        <div class="loading">Analyzing current page...</div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

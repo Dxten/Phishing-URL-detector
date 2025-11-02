@@ -1,0 +1,19 @@
+{
+  "suspicious": [
+    "login",
+    "secure",
+    "account",
+    "verify",
+    "confirm",
+    "update",
+    "password",
+    "banking"
+  ],
+  "dangerous": [
+    "phish",
+    "malware",
+    "virus",
+    "trojan",
+    "exploit"
+  ]
+}

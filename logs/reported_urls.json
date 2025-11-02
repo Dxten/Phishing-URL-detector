@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://www.google.com",
+    "domain": "google.com",
+    "comment": "",
+    "timestamp": "2025-10-30T22:13:01.048994",
+    "reporter_ip": "127.0.0.1"
+  },
+  {
+    "url": "http://secure-account-verify.tk/login",
+    "domain": "secure-account-verify.tk",
+    "comment": "",
+    "timestamp": "2025-10-30T22:48:43.244306",
+    "reporter_ip": "127.0.0.1"
+  },
+  {
+    "url": "http://login.microsoft.com-account.security-update.net",
+    "domain": "security-update.net",
+    "comment": "its fake",
+    "timestamp": "2025-10-31T11:47:19.033926",
+    "reporter_ip": "127.0.0.1"
+  },
+  {
+    "url": "http://login.microsoft.com-account.security-update.net/",
+    "domain": "security-update.net",
+    "comment": "",
+    "timestamp": "2025-10-31T12:04:40.753376",
+    "reporter_ip": "127.0.0.1"
+  },
+  {
+    "url": "http://login.microsoft.com-account.security-update.net/",
+    "domain": "security-update.net",
+    "comment": "",
+    "timestamp": "2025-10-31T12:10:24.395262",
+    "reporter_ip": "127.0.0.1"
+  },
+  {
+    "url": "http://secure-account-verify.tk/login",
+    "domain": "secure-account-verify.tk",
+    "comment": "",
+    "timestamp": "2025-10-31T16:06:21.097663",
+    "reporter_ip": "127.0.0.1"
+  }
+]

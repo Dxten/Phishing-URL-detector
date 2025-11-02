@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="shield-icon" style="color: #dc2626;">🛡️</span>
+                <h1>Phishing URL Detector</h1>
+            </div>
+            <p class="tagline">Real-time URL threat detection using advanced algorithms</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- URL Input Section -->
+            <section class="input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        placeholder="Enter URL to check (e.g., https://example.com)"
+                        autocomplete="off"
+                    >
+                    <button id="checkBtn" class="btn-primary">
+                        <span class="btn-text">Analyze URL</span>
+                        <span class="loader" style="display: none;"></span>
+                    </button>
+                </div>
+                <div class="quick-actions">
+                    <button id="exampleSafe" class="btn-secondary">Try Safe URL</button>
+                    <button id="examplePhishing" class="btn-secondary">Try Phishing URL</button>
+                    <button id="batchCheck" class="btn-secondary">Batch Check</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="risk-badge" id="riskBadge"></div>
+                        <h2 id="resultTitle">Analysis Results</h2>
+                    </div>
+                    
+                    <div class="result-summary">
+                        <div class="summary-item">
+                            <span class="label">URL:</span>
+                            <span id="checkedUrl" class="url-display"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Risk Level:</span>
+                            <span id="riskLevel"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Confidence:</span>
+                            <span id="confidence"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Threat Score:</span>
+                            <span id="threatScore"></span>
+                        </div>
+                    </div>
+
+                    <div class="recommendation" id="recommendation"></div>
+
+                    <!-- Threats Detected -->
+                    <div id="threatsContainer" class="threats-container">
+                        <h3>Threats Detected (<span id="threatCount">0</span>)</h3>
+                        <div id="threatsList" class="threats-list"></div>
+                    </div>
+
+                    <!-- URL Details -->
+                    <div class="details-container">
+                        <h3>URL Analysis Details</h3>
+                        <div id="detailsGrid" class="details-grid"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="reportBtn" class="btn-warning">Report as Phishing</button>
+                        <button id="newCheckBtn" class="btn-secondary">Check Another URL</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <h2>Detection Statistics</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalAnalyzed">0</div>
+                        <div class="stat-label">Total Analyzed</div>
+                    </div>
+                    <div class="stat-card phishing">
+                        <div class="stat-value" id="phishingDetected">0</div>
+                        <div class="stat-label">Phishing Detected</div>
+                    </div>
+                    <div class="stat-card safe">
+                        <div class="stat-value" id="safeUrls">0</div>
+                        <div class="stat-label">Safe URLs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="cacheHits">0</div>
+                        <div class="stat-label">Cache Hits</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2>Detection Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>O(1) blacklist lookup with hash sets</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Multi-Pattern Search</h3>
+                        <p>Aho-Corasick for keyword detection</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧬</div>
+                        <h3>Typosquatting Detection</h3>
+                        <p>Levenshtein distance analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Pattern Matching</h3>
+                        <p>KMP & Boyer-Moore algorithms</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Weighted Scoring</h3>
+                        <p>13-point threat assessment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Auto-Updates</h3>
+                        <p>Real-time blacklist from PhishTank</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent History -->
+            <section class="history-section">
+                <div class="section-header">
+                    <h2>Recent Detections</h2>
+                    <button id="refreshHistory" class="btn-icon">🔄</button>
+                </div>
+                <div id="historyContainer" class="history-container">
+                    <p class="loading-text">Loading history...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+
+    </div>
+
+    <!-- Batch Check Modal -->
+    <div id="batchModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Batch URL Check</h2>
+            <textarea 
+                id="batchInput" 
+                placeholder="Enter URLs (one per line)&#10;https://example1.com&#10;https://example2.com&#10;https://example3.com"
+                rows="10"
+            ></textarea>
+            <button id="batchCheckBtn" class="btn-primary">Check All URLs</button>
+            <div id="batchResults" class="batch-results"></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

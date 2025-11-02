@@ -1,0 +1,10 @@
+# Known phishing URLs
+# Format: one URL per line
+http://example-phishing-site.com
+http://fake-bank-login.com
+http://not-a-real-amazon.comgoogle.com
+secure-account-verify.tk
+security-update.net
+security-update.net
+security-update.net
+secure-account-verify.tk
